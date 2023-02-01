@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        When we need to iterate over an array, we can use forEach, for, for..Of
+
+        when we need to iterate and return the data for each element, we can use map
+
+        The methods recuce and reduceRight also beong to the breed, but a little bit
+        more intricate. They are used to cslculate a single value based on the array.
+
+        Syntax
+        let value=arr.reduce(function(accumulator, item, index, array){
+            //...
+        }, [initial]);
+
+        accumulator:
+        is the result of previous function call., Equals Initial the first time (If initial is 
+        provided)
+
+        item:
+        is the current array item
+
+        index:
+        is its position
+
+        array:
+        is the array
+
+        As function is applied, the result of previous call is passed to the next one as the 
+        first argument
+
+        
+
+        */
+
+        let arr=[1,2,3,4,5];
+        let result=arr.reduceRight((sum, current)=>sum+current, 0);
+        alert(result);
+
+        //reduce method without initial value is not recommented
+
+
+    </script>
+</body>
+</html>
