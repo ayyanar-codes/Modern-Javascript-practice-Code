@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //without default parameter value
+        // function fnShowMessage(name){
+        //     alert(name);
+        // }
+
+        //with default value for parameter
+        // function fnShowMessage(name){
+        //     name=name||'Name not available!';
+        //     alert(name);
+        // }
+
+        //with default value for parameter (using nullish coalsing operator)
+         function fnShowMessage(name){
+            name=name??'Name not available! (using nullish coalsing operator)';
+            alert(name);
+        }
+
+
+        fnShowMessage();
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*syntax
+            Object.assign(dest, [src1, src2, src3, ...]);
+
+            here first orgument is target object, Further arguments are are source objects.
+
+            It copies the properties of all source objects src1, src2, src3 into the target DEST. 
+            In other words, properties of all arguments starting from the second are copied into
+            the first object.
+
+        */
+
+        let user={name:'Ayyanar'};
+
+        let permission1={canView:true};
+        let permission2={conEdit:true};
+
+        Object.assign(user, permission1, permission2);
+
+        
+
+
+
+    </script>
+</body>
+</html>

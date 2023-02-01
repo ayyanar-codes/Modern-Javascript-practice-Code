@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let result=12||2;   //returns first truthy value
+        document.write(result);
+
+        document.write('<br>');
+
+        let hour=12;
+        let isWeekend=true;
+
+        if(hour<10||hour>18||isWeekend){
+            document.write('The office is closed')
+        }
+
+
+        document.write('<br>');
+
+        let firstName='';
+        let lastName='';
+        let nickName='superCoder';
+        document.write(firstName||lastName||nickName);
+
+
+    </script>
+</body>
+</html>

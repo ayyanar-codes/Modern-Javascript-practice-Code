@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        /*
+        1. File navigator
+            The file navigator pane lists HTML, Javascript, CSS and ather files including images that are attchaed 
+            to the page. Chrome extention may appear here too.
+        
+        2. Code editor
+            The code editor pane shows the source code
+
+            The javasvript debugging appear here.
+
+        3. Console
+            Id we press ESC, then a console opens below. we can type commands here and press ENTER to execute.
+
+            After a statement is executed, Its result is shows here. 
+
+        4. Breakpoints
+            Let's examine what's going on within the code of the examine page. In below code, click the line no 4 
+            Now we set a breakpoint. Click line no 8
+
+            A breakpoint is a point of code where the debugger will automatically pause the execution. 
+
+            While the code is paused, we can examin current variables, executed commands in the console
+
+            b. Conditional breakpoints
+                Right click on the line number allows to create a conditional breakpoint. It only triggers when 
+                the given expression is truthy.
+        
+        5. Debugger commad
+            we can also pause the execution by adding debugger command .
+        
+        6. Watch
+            Shows current value for any expression.
+            You can click the plus and input an expression. Debugger will show its value at any moment automatically 
+            recalculating it in the process of execution.
+        
+        7. Call stack 
+            Shows the nested calls chain.
+
+            At the current moment, the debugger is inside fnHello() call, called by a script in index.html. (No function there
+            so its called anonymous)
+
+        8. Scope-Current variables
+            Local shows local function variables. You can see their value highlighted right over the source.
+            Global has global variables (out of any functions)
+
+            There are also 'This' key word.
+
+        9. Logging
+            To output something to the console from our code, There's  console.log function.
+            
+        */
+        fnHello('Ayyanar');
+        
+        function fnHello(name){
+            let phrase=`Hello ${name}`;
+            fnSay(phrase);
+        }
+
+
+        function fnSay(phrase){
+            alert(`**${phrase}`);
+        }
+    </script>
+</body>
+</html>

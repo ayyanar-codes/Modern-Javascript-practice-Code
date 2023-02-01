@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        undefined becomes NaN
+        null becomes 0
+        true and false becomes 1 and 0
+        string becomes =>
+            white spaces from starting and end are removed. If the remaining string is empty,
+            the result is 0. Otherwise the number is read from the string.
+            An error gives NaN
+        */
+
+
+        console.log(Number('123'));   //123
+        console.log(Number('123z'));  //NaN (Error)
+        console.log(Number(true));    //1
+        console.log(Number(false)); //0 
+        console.log(Number('false')); //Nan
+        
+        
+        
+            
+
+
+
+    </script>
+</body>
+</html>
