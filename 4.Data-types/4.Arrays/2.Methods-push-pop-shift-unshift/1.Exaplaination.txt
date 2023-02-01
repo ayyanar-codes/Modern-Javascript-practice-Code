@@ -1,0 +1,5 @@
+Push:
+Appends an element to the end
+
+Shift:
+Get an element from the begining, Advancing the queue, So the second element becomes the first

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=['Apple', 'Orange', 'Plum'];
+
+        console.log(arr[0]);
+        console.log(arr[1]);
+        console.log(arr[2]);
+
+        //We can replave an element
+        arr[2]='Pear';
+
+        //Or Add new one
+        arr[3]='Lemon';
+
+
+        //mix of values
+        let arr2=['Apple', {"name":"Ayyanar"}, function(){alert('Hello everyone')}];
+
+        //Get object as index 1, Then show its name
+        alert(arr2[1].name);  //Ayyanar
+
+        //get the function at index 3 and runit
+        arr2[3]();   //Hello everyone
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

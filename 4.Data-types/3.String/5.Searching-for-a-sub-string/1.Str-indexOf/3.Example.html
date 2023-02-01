@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str='As sly as a fox, as stromy as an ox';
+        let target='a';
+
+        let pos=0;
+
+        while(true){
+            let foundPos=str.indexOf(target, pos);
+            if(foundPos==-1) break;
+
+            alert(`Found as ${foundPos}`);
+            pos=foundPos+1;
+            //Continue the search from the next position
+        }
+
+    </script>
+</body>
+</html>

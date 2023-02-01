@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        The find method looks for a single (first) element that make sthe function return true
+        If there may be mmany, we can use filter
+
+        The syntax similar with find. but returns an array of all matching elements
+
+
+        let arrResult=arr.filter(function(item, index, array){
+            if true is returned, item pushed to arrResult and the iteration continues.
+            returns empty arrays if nothing found
+        });
+        */
+
+        let users=[
+        {id:1, Name:'Marishwari'},
+        {id:2, Name:'Ayyanar'},
+        {id:3, Name:'SaravanaKumar'},
+        {id:4, Name:'Ayyanar'},
+        ];
+
+        let arrResult=users.filter(user=>user.Name=='Ayyanar');
+        
+        for(let result of arrResult){
+            for(let key in result){
+            alert(result[key]);
+            }
+        }
+
+
+    </script>
+</body>
+</html>

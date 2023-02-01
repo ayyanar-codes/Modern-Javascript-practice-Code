@@ -1,0 +1,17 @@
+There are tree methods in javascript to get a substring. 
+
+1.Slice
+2.SubStr
+3.substring
+
+
+Which one to choose?
+Allof them can do the same job. Formally, substr has a little draback:it is described  
+not in the core javascript specification, BUt in Annex B, Which covers browser only features.
+That exist mainly of rhistorical reasons. So, non-browser environments amy fail to support it.
+But in practice it works averywhere.
+
+Of the other two variants, slice is the little bit more flexible. it allows negative arguments
+and shorter to write. So its enough to remember soley slice of those three methods.
+
+
