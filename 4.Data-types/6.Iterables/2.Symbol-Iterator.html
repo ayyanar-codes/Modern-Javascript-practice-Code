@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Exmaple 1: 
+            This is usaual object. But need to make it loop. Its not working 
+            because of it is not array /array likes/ Iterables i love u
+        */
+        let range={
+            from:1,
+            to:5,
+        };
+
+        //we want the for..of to work:
+        //for (let num of range) alert(num)   //Uncaught TypeError: range is not iterable
+
+
+        //1.Call to for..Of intialy call this
+        range[Symbol.iterator]=function(){
+            //..it returns the iterator object
+            //2. Onwards , for..Of works only with the 
+            //iterator object below,asking it for next value
+            return{
+                current:this.from,
+                last:this.to,
+                //3. next() is called on each iteration
+                //by the for..of loop
+                next(){
+                    //4.it should return the value 
+                    //as on object {done:..., value:...}
+                    if(this.current<=this.last){
+                        return {done:false, value:this.current++}
+                    } else{
+                        return {done:true};
+                    }
+                }
+            };
+        }
+
+        for (let num of range) alert(num);
+
+    </script>
+</body>
+</html>

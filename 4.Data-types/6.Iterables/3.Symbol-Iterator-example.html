@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Exmaple 1: 
+            This is usaual object. But need to make it loop. Its not working 
+            because of it is not array /array likes/ Iterables i love u
+        */
+        let range={
+            from:1,
+            to:5,
+            [Symbol.iterator](){
+                this.current=this.from;
+                return this;
+            },
+            next(){
+                    if(this.current<=this.to){
+                        return {done:false, value:this.current++}
+                    } else{
+                        return {done:true};
+                    }
+                }
+        };
+        
+        for (let num of range) alert(num);
+
+    </script>
+</body>
+</html>

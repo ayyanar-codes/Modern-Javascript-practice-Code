@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            That is a universal method Array. from that takes an iterable or array-like 
+            value and makes a real array from it. Then we can call array methods on it.
+        */
+
+        //For instance,
+        let arrayLike={
+            0:'hello',
+            1:'world',
+            length:2
+        }
+
+        let arr=Array.from(arrayLike);  //(*)
+        alert(arr.pop()); //world (method works)
+
+        
+
+    </script>
+</body>
+</html>

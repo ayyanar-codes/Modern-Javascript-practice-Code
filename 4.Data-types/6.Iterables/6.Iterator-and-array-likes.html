@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Two official terms look similar, But are very defferent. 
+            Please make sure your understand them to avoid the confusion
+
+            a.Iterables are objects that implements the symbol.iterator method, as described above
+
+            b.Array-likes are objects that have indexes and lengths, so they like arrays.
+
+            Whenwe use javascript for practical tasks in a browser or any other environment,
+            we may meet objects that are iterables or array likes or both.
+
+            For Instance, strings are both Iterables (for..of) and array-like (they have numeric
+            indexes and length).
+
+            But an iterable may not be array-like. and vice-vera. an array-like may be not iterable.
+
+            for example, the range in the example above is iterable, But not array-like. because it 
+            does not have indexed properties and length.
+
+            And here's the object that is array-like, but not iterable:
+
+        */
+
+        
+        let arrayLike={   //has indexes and length
+            0:'Hello',
+            2:'world',
+            length:2
+        }
+
+        //Error: (no symbol.iterator)
+        for(let item of arrayLike){};
+
+        /*
+            Both iterables and array-likes are usaually not arrays , they don't have push, pop etc.
+            That's rather inconvenient if we have such an object and want to work with it as with
+            an array. E.g. we would like to work with range using array methods.
+
+        */
+
+
+    </script>
+</body>
+</html>
