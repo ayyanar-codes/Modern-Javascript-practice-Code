@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Map is a collection of keyed data items like an object.
+            but the main defference is that map allows keys of any type.
+
+            methods and properties:
+            1.new Map()- creates new map
+            2.map.set(key, value) -stores the value by key
+            3.map.get(key) returns the value by the key, undefined if key does not exist in the map.
+            4.map.has(key) -returns true if the key exist, false otherwise
+            5.map.delete(key) removes the value by key
+            6.map.clear() -clear everything from the map
+            7.map.size -returns the current element count
+        */
+
+        let map=new Map();
+        map.set('1', 'str1');  //string key
+        map.set(1,'num2');   //numeric key
+        map.set(true, 'bool1');  //boolean key
+
+        //remember the regulat object?
+        //it would convert key to string
+        //Map keeps the type, so these two are different
+
+        alert(map.get('1'));  //num1
+        alert(map.get(1));   //str1
+        alert(map.get(true));  //3
+
+
+
+
+    </script>
+</body>
+</html>

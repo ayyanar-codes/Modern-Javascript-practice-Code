@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            we can use Object.fromEntries to get a plain object from map.
+
+            e.g. we store the data in a map. but we need to pass it to a 3rd party
+            code that expects a plain object.
+
+        */
+
+        let map=new Map();
+
+        map.set('banana', 1);
+        map.set('orange', 2);
+        map.set('meat', 4);
+
+
+        let obj=Object.fromEntries(map.entries());
+        //make a plain object(*)
+
+        alert(obj.banana);
+
+
+        /*
+            A call to map.entries() returns an iterable of key/value pairs, 
+            exactly in the right format for object.fromEntries
+
+            we could also make line (*) shorter
+
+        */
+
+
+        let obj2=Object.fromEntries(map);  //omit .entries()
+
+
+    </script>
+</body>
+</html>

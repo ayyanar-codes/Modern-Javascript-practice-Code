@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            We can over a set either for..Of or using forEach:
+        */
+
+        let set=new Set(["orange", "apples", "Bananas"]);
+        for(let value of set) alert(value);
+
+        //the same with forEach
+        set.forEach((value, valueAgain, set)=>{
+            alert(value);
+        });
+
+
+    </script>
+</body>
+</html>

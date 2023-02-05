@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            When a map is created, we can pass an array (or an iterable) 
+            with key value pairs for initialization like this:-
+        */
+
+
+        let recimap=new Map([
+            ['Cucumber', 500],
+            ['tomatos', 135],
+            ['onion', 50]
+        ]);
+
+        alert(recimap.get('tomatos'));
+
+
+        /*
+            If we have a plain object, we'd like to create a map from it.
+            Then we can use built-in method Object.entries(obj) that returns
+            an array of key/value pairs from an object exactly in the format
+
+            so we can create map from an object like this:-
+        */
+
+        let Obj={name:"Ayyanar", age:30};
+        let map=new Map(Object.entries(Obj));
+        alert(map.get('name'));   //Ayyanar
+
+
+
+
+
+    </script>
+</body>
+</html>

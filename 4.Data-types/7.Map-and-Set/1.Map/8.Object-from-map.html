@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            we have seen how to create map from plain object with object.entries(Obj);
+
+            There is Object.fromEntries() method that does the reverse: given an array of [key, value]
+            pairs, it creates an object from them.
+        */
+
+        let prices=Object.fromEntries([
+            ['Banana', 1],
+            ['Orange', 2],
+            ['meat', 3]
+        ]);
+
+        //now prices ={Banana:1, Orange:2, meat:3}
+        alert(prices.Orange);
+
+
+        
+
+    </script>
+</body>
+</html>

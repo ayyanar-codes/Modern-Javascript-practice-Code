@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            The iteration goes in the same order as the values were inserted. 
+            Map preserves this order, unlike an object.
+
+            Besides that, map has a buildt-in forEach method similar to the array
+
+        */
+
+        let recepeMap=new Map([
+            ['cucumber', 500],
+            ['tomatos', 350],
+            ['onion', 50]
+        ]);
+
+        //runs the function for each (key, value) pair.
+        recepeMap.forEach((value, key, map)=>{
+            alert(`${key}:${value}`);  //cucumber:300
+        });
+
+    </script>
+</body>
+</html>
