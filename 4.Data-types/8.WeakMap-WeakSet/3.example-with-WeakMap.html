@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let weakMap=new WeakMap();
+        // let obj={};
+        // weakMap.set(obj, 'OK');  //works fine (object key)
+
+        //can't use a string as the key
+        //weakMap.set('test', 'whoops'); //Uncaught TypeError: Invalid value used as weak map key
+
+        let ayyanar={Name:'Ayyanar'};
+
+        let weakMap=new WeakMap();
+        weakMap.set(ayyanar, '...');
+        ayyanar=null; //overwrite the reference.
+
+        //ayyanar is removed from memory. so weakMap also remove it. 
+
+
+
+
+    </script>
+</body>
+</html>

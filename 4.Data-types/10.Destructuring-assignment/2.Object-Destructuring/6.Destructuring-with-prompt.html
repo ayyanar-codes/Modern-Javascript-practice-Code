@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Just like with arrays or function parameters, default values can be any expressions or even function calls. They will be evaluated if the value is not provided.
+
+            In the code below prompt asks for width, but not for title
+
+        */
+
+        let options = {
+            title: "Menu"
+        };
+
+        let {width = prompt("width?"), title = prompt("title?")} = options;
+
+        alert(title);  // Menu
+        alert(width);  // (whatever the result of prompt is)
+
+    </script>
+</body>
+</html>

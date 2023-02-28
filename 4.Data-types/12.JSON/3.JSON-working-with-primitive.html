@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            JSON.stringify can be applied to primitives as well.
+            JSON supports following data types:
+            a.Objects { ... }
+            b.Arrays [ ... ]
+            c.Primitives:
+                1.strings,
+                2.numbers,
+                3.boolean values true/false,    
+                4.null.
+        */
+
+        // a number in JSON is just a number
+        alert( JSON.stringify(1) ) // 1
+
+        // a string in JSON is still a string, but double-quoted
+        alert( JSON.stringify('test') ) // "test"
+
+        alert( JSON.stringify(true) ); // true
+
+        alert( JSON.stringify([1, 2, 3]) ); // [1,2,3]
+
+        
+    </script>
+</body>
+</html>

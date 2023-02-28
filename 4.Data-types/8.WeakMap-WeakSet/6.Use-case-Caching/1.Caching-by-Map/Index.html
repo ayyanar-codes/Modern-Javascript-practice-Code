@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="caching.js"></script>
+</head>
+<body>
+    <button type="button" id="btnExecuteProcess1">Start Process and Get result</button>
+    &nbsp;
+    <button type="button" id="btnExecuteProcess2">Start Process and Get result</button>
+    &nbsp;
+    <button type="button" id="btnReset">Clear</button>
+    
+
+    <script>
+        let obj={/* let's say we have an object */};
+        let PrecessButton1=document.getElementById('btnExecuteProcess1');
+        let PrecessButton2=document.getElementById('btnExecuteProcess2');
+        let ClearButton=document.getElementById('btnReset');
+        
+        PrecessButton1.addEventListener('click', StartPrecess);
+        PrecessButton2.addEventListener('click', StartPrecess);
+        ClearButton.addEventListener('click', Clear);
+
+        function StartPrecess(){
+            let result= process(obj);
+            alert(result);
+        }
+
+        function Clear(){
+            clearCach(obj);
+        }
+
+        
+
+
+
+    </script>
+</body>
+</html>

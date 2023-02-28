@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            The autocorrection isvery handy feature of Date objects. we can set out of range
+            values and it will adjusted with auto-adjust inself.
+        */
+
+        let date=new Date(2023, 0, 32);
+        //32 Jan 2023  ?
+        alert(date.toString())
+        alert(new Date(date));
+        //... is 1st feb 2023
+
+
+    </script>
+</body>
+</html>

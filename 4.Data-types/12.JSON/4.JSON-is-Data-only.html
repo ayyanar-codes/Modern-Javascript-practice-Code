@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            JSONis data-only language-independant specification, 
+            so some javascript-specific object properties are skipped by JSON.stringify.
+        
+            following properties (methods) are skipped by json:
+            1.Function properties (methods)
+            2.Symbolic keys and values.
+            3.Properties that store undefiened
+        */
+
+        let user={
+            sayHi(){    //Ignored
+                alert('Hello');
+            },
+            [Symbol("Id")]:123, //Ignored
+            someThing:undefined  //Ignored
+        }
+
+        alert(JSON.stringify(user));
+
+
+
+
+    </script>
+</body>
+</html>

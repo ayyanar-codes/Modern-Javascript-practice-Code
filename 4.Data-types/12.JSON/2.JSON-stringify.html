@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            The method JSON.stringify(student) takes the object and converts it into a string.
+            The resulting json string is called a JSON-encoded or serialized or stringified or marshalled object. We are ready to send it over the wire or put into a plain data store.
+            Please note that a JSON-encoded object has several important differences from the object literal:
+
+                a.Strings use double quotes. No single quotes or backticks in JSON. So 'John' becomes "John".
+                b.Object property names are double-quoted also. That’s obligatory. So age:30 becomes "age":30.
+            
+            
+        */
+
+        let student={
+            name:'John',
+            age:30,
+            isAdmin:false,
+            course:['html', 'css', 'js'],
+            spouse:null
+        };
+
+        let json=JSON.stringify(student);
+
+        alert(typeof json);
+
+        alert(json);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // let [name1, name2] = ["Muthu", "Sankara", "Narayana", "s"];
+        // alert(name1); // Muthu
+        // alert(name2); // Sankara
+        // // Further items aren't assigned anywhere
+
+        let [name1, name2, ...rest] = ["Arul", "Tamil", "Selva", "Kumar"];
+        // rest is array of items, starting from the 3rd one
+        alert(rest[0]); // Arul
+        alert(rest[1]); // Tamil
+        alert(rest.length); // 2
+
+    </script>
+</body>
+</html>

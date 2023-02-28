@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            The full syntax of JSON.stringify:
+
+                let json=JSON.stringify(value[, replacer, space]);
+            
+                value: a value to encode
+
+                replacer: array of properties
+
+                space: Amount of space to use for formatting
+
+        */
+
+        let room = {
+            number:23
+        }
+
+        let meetup = {
+            title:"conference",
+            participants:[{name:"Ayyanar"}, {name:"Nandhini"}],
+            place:room
+        };
+
+        room.occupiedBy = meetup;//room references meetup
+
+        alert(JSON.stringify(meetup, ['title', 'participants']));
+        //participants is looks empty because it's properties (name) is not included in JSON.stringify(meetup, ['title', 'participants'])
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <button type="button" id="btnCount" >Count</button>
+    &nbsp;&nbsp;
+    <button type="button" id="btnClearCount" >Clear Count</button>
+
+    <script src="visitsCount.js"></script>
+    <script>
+
+        let ayyanar={name:"Ayyanar"};
+        let countButton=document.getElementById('btnCount');
+        let countClearButton=document.getElementById('btnClearCount');
+
+        countButton.addEventListener('click', function(){
+            countUser(ayyanar);
+        });
+
+        countClearButton.addEventListener('click', function(){
+            ayyanar=null;
+        });
+
+
+        
+
+
+        
+
+        
+
+        
+
+
+
+    </script>
+</body>
+</html>

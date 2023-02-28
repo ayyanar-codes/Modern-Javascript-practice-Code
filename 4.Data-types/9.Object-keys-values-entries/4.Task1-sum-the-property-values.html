@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let salaries={
+            Ayyanar:50000,
+            Saravanan:15000,
+            SankarGanesh:15000
+        }
+
+        function sunSalaries(){
+            let sum=0;
+            for(let value of Object.values(salaries)){
+                sum+=value;
+            }
+            return sum;
+        }
+
+        alert(sunSalaries(salaries));
+
+    </script>
+</body>
+</html>

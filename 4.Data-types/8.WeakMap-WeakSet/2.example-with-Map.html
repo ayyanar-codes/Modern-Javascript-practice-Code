@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Usually, Properties of an object or elements of an array or onother data structure
+            are considered reachable and kept in memory while the data structure is in memory.
+
+            For, instance if we put an object into an array, Then while the array is alive, the object
+            will alive as well., even if there are no other reference to it.
+        */
+
+        let ayyanar={Name:"Ayyanar"};
+        
+        
+        let map=new Map();
+        map.set(ayyanar, "...");
+
+        ayyanar=null;  //overwrite the reference
+
+
+        //ayyanar stored inside the map
+        //we can get it by using map.keys();
+        let retrievedObject=map.keys();
+
+
+        /*
+            WeakMap is fundamentally different in the aspect. It does not prevent garpage-collection
+            of key object.
+        */
+
+
+    </script>
+</body>
+</html>

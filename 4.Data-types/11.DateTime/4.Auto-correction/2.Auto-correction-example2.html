@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            Let's say we need to increase the date '28 feb 2026' by 2 days.Its may be '2 march'
+            or '1 march' in the case of a leap-year. we dont need to think about it. just add 2 days.
+            The Date object will do the rest.
+        */
+
+        let date=new Date(2023, 1, 28);
+        
+        alert(new Date(date.setDate(date.getDate()+2)));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            1.weakSet not support primitives. it only support objects
+            2.Like Set, it support add, has, delete. But not size, keys(), iterations
+
+        */
+
+        let visitedCount=new WeakSet();
+
+        let ayyanar={name:"Ayyanar"};
+        let saravanan={name:"Saravanan"}
+        let selvam={name:"Selvam"}
+
+        visitedCount.add(ayyanar);
+        visitedCount.add(saravanan);
+        visitedCount.add(ayyanar);
+        visitedCount.add(saravanan);
+        visitedCount.add(ayyanar);
+        visitedCount.add(saravanan);
+        visitedCount.add(selvam);
+        
+
+        //check if ayyanar visited?
+        alert(visitedCount.has(ayyanar));
+
+        saravanan=null;
+
+        alert(visitedCount.has(ayyanar));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            If we only want to measure time, we dont need the date object.
+
+            There is a special method Date.now() that return the current timestamp.
+
+            It is semantically equivalent to new Date().getTime(). But it does not create
+            intermediate Date object. So it's faster and pressure on garbage collection.
+
+            It is is used mostly for convenience or when performance matters, like in games in 
+            javascript or other specialized applications
+
+            so, this is probably better:
+        */
+
+
+        let start=Date.now();
+        //milliseconds count from 1 jan 1970
+
+        //do the job
+        for(let i=0; i<100000; i++){
+            let someThing=i*i*i;
+        }
+
+        let end=Date.now(); //Done
+
+        alert(`The loop took ${end-start}ms`);
+        //subtract numbers, not dates
+
+
+
+
+    </script>
+</body>
+</html>
