@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //rest parameters must be at end
+        function showName(firstName, lastName, ...titles){
+
+            alert('Name: '+firstName+' '+lastName);
+
+            //the rest go into titles array
+            for(let title of titles) alert('Title: '+title);
+
+
+        }
+
+
+        showName('Ayyanar', 'Ayyadurai', 'Dev', 'Programmer', 'Software developer',  'tech');
+
+
+
+    </script>
+</body>
+</html>

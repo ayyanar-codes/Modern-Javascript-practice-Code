@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let company={
+            Sales:[{
+                name:"Ayyanar",
+                Salary:50000,
+            },
+            {
+                name:"Saravanan",
+                Salary:15000
+            }],
+            Development:{
+                Sites:[{
+                    name:"John",
+                    Salary:3000,
+                },{
+                    name:"Matheow",
+                    Salary:45000,
+                }],
+                Internals:[{
+                    name:"Jobin",
+                    Salary:1300
+                }]
+            }
+        }
+
+        alert(JSON.stringify(company));
+
+
+        function fnSumSalaries(depatment){
+            if(Array.isArray(depatment)){
+                return depatment.reduce((prev, current)=>{
+                    return (prev.Salary+current.Salary)
+                });
+            } else{
+                let sum=0;
+                for(let subDep of Object.values(depatment)){
+                    sum+=fnSumSalaries(subDep);
+                }
+                return sum;
+            }
+            
+        }
+
+        
+
+        alert(fnSumSalaries(company));
+
+    </script>
+</body>
+</html>

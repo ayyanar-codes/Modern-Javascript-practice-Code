@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user={
+            name:"Ayyanar",
+            toString(){
+                return this.name;
+            },
+        }
+
+        //by default both properties and values are listed.
+        for(let key in user) alert(key);
+
+
+        /*
+            Id we dont like, then we can set enumerable: false. Then it won't appear
+            in a for...loop just like the built-in one:
+        */
+
+        Object.defineProperty(user, 'toString', {enumerable:false});
+
+        //Now toString is not visible in for loop and other iteration loops
+        for(let key in user) alert(key);
+
+    </script>    
+</body>
+</html>

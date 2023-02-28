@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let worker={
+            SomeMethod(){
+                return 2;
+            },
+            slow(x){
+                alert(`Called with ${x}`);
+                return x *this.SomeMethod();
+            }
+        }
+
+
+        function cachingDecorator(func){
+            let cache=new Map();
+
+            return function(x){
+                if(cache.has(x)){
+                    return cache.get(x);
+                }
+
+                //let result=func(x);  //Uncaught TypeError: this.SomeMethod is not a function
+                let result=func.call(this, x);  //working
+                cache.set(x, result);
+                return result;
+            }
+        }
+
+        alert(worker.slow(3));
+
+
+        worker.slow=cachingDecorator(worker.slow);  
+
+        alert(worker.slow(2));
+
+
+    </script>
+</body>
+</html>

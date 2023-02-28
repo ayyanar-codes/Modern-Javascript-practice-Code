@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function cachingDecorator(func){
+
+            let cache=new Map();
+
+                return function(x){
+                    if(cache.has(x)){
+                        return cache.get(x);
+                    }
+
+                    let result=func(x);
+                    cache.set(x, result);
+                    return result;
+                }
+
+            
+
+        }
+
+        function fnGetValueFromLongProcess(iValue){
+            let indexThree=0
+            for(let indexTwo=0; indexTwo<100000; indexTwo++){
+                    for(indexThree=0; indexThree<100000; indexThree++){
+                        //console.log(indexThree);
+                    }
+            }
+            return 12+indexThree;
+        }
+
+
+
+
+        //fnGetValueFromLongProcess();
+
+        //alert(fnGetValueFromLongProcess(3));
+
+        let cachedFunctionValue = cachingDecorator(fnGetValueFromLongProcess);
+
+        let vals=cachedFunctionValue();
+
+        alert(cachedFunctionValue(3));
+        alert(cachedFunctionValue(3));
+        alert(cachedFunctionValue(3));
+        alert(cachedFunctionValue(3));
+
+
+
+
+    </script>
+</body>
+</html>

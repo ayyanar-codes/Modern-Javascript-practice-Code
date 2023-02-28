@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function hashing(){
+            let arrArguments=Object.entries(arguments);
+            //return arguments[0] + ',' + arguments[1];
+            return arrArguments.join(',');
+        }
+
+        let worker={
+            SomeMethod(){
+                return 1;
+            },
+            Slow(x, y){
+                alert(`Call with ${x}`);
+                return x * y;
+            }
+        }
+
+        function cachingDecorator(func){
+            let cache=new Map();
+
+            return function(max, min){
+
+                let key = hashing(max, min);
+
+                if(cache.has(key)){
+                    return cache.get(key);
+                }
+
+                let result=func.call(this, max, min);
+                cache.set(key, result);
+                return result;
+            }
+        }
+
+        worker.Slow=cachingDecorator(worker.Slow);
+
+        alert(worker.Slow(3, 4));
+
+    </script>
+</body>
+</html>

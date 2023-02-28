@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sayHi(){
+            alert('Hi');
+
+            //let's count how many times we run 
+            if(sayHi.counter==undefined){
+                sayHi.counter=0;
+            }
+            sayHi.counter++;
+        }
+
+        sayHi();
+        sayHi();
+        sayHi();
+        sayHi();
+        
+        alert(`called ${sayHi.counter} times`); //called 4 times
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=[1,2,3];
+        let arrCopy=[...arr];  //here the new array variable copied from another one.
+        //This is not copied. This is created as an new one. (created by value; Not reference)
+
+        arr.push(12);
+        arr.push(123);
+        arr.push(124);
+        
+        alert(arr);
+        alert(arrCopy);
+
+    </script>
+</body>
+</html>

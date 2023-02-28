@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+        function CreateUser(firstName, lastName){
+
+            let arrCount=0;
+            arrCount=arrCount+1;
+            this.Name=firstName+' '+lastName;
+            this.FirstName=firstName;
+            this.LastName=lastName;
+            this.Count=arrCount;
+        }
+
+
+        let user1=new CreateUser('Ayyanar1', 'Ayyadurai1');
+        let user2=new CreateUser('Ayyanar2', 'Ayyadurai2');
+        let user3=new CreateUser('Ayyanar3', 'Ayyadurai3');
+        let user4=new CreateUser('Ayyanar4', 'Ayyadurai4');
+        alert(JSON.stringify(user4));
+
+
+    </script>
+</body>
+</html>
