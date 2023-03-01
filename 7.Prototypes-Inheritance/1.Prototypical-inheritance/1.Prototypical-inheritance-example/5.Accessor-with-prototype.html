@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user={
+            name:"Herpert",
+            surName:"Samuel",
+            set fullName(value){
+                [this.name, this.surName]=value.split(' ');
+            },
+            get fullName(){
+                return `${this.name} ${this.surName}`;
+            }
+        };
+
+
+        let admin={
+            __proto__:user,
+            isAdmin:true,
+        }
+
+        alert(admin.fullName);  //Herpert Samuel
+
+        admin.fullName="Neven matheow";
+
+        alert(admin.fullName); 
+
+    </script>
+</body>
+</html>
