@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            The simplest way to implement a mixin in JavaScript is to make an object with useful methods, so that 
+            we can easily merge them into a prototype of any class.
+            For instance here the mixin sayHiMixin is used to add some “speech” for User:
+        */
+
+        let sayHiMixin={
+            sayHi(){
+                alert(`Hi ${this.name}`);
+            },
+
+            sayBye(){
+                alert(`Bye ${this.name}`);
+            }
+        }
+
+        class User{
+            constructor(name) {
+                this.name=name;
+            }
+        }
+
+        //copy the method
+        Object.assign(User.prototype, sayHiMixin);
+
+        new User('Ayyanar').sayHi();
+        
+    </script>
+</body>
+</html>

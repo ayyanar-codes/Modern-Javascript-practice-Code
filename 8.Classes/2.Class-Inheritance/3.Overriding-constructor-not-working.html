@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         class Animal{
+            constructor(name) {
+                this.name=name;
+                this.speed=0;
+            }
+
+            run(speed){
+                this.speed=speed;
+                alert(`${this.name} runs with speed ${this.speed}`);
+            }
+
+            stop(){
+                this.speed=0;
+                alert(`${this.name} stands still`);
+            }
+        }
+
+        class Rabit extends Animal{
+            constructor(name, earLength){
+                this.name=name;
+                this.earLength=earLength;
+                this.speed=0;
+            }
+        }
+
+        //not working
+        let rabbit=new Rabit('Ayyanar', 10);
+        //Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            It is a recent addition. (Some times we require polyfils)
+        */
+
+        class CoffeeMachine{
+            #waterLimit=0;
+
+            #fixWaterAmount(value){
+                if(value<0) return 0;
+                if(value>=this.#waterLimit){
+                    return this.#waterLimit
+                } 
+
+            }
+
+            setWaterAmount(value){
+                this.#waterLimit=this.#fixWaterAmount;
+            }
+        }
+
+        let coffeeMachine=new CoffeeMachine();
+
+        //coffeeMachine.#fixWaterAmount(100);  //Error
+        //coffeeMachine.#waterLimit=10;  //Error
+    </script>
+</body>
+</html>

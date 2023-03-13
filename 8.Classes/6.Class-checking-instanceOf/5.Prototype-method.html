@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Most classes do not have Symbol.hasInstance. In that case, the standard logic is used: obj 
+            instanceOf Class checks whether Class.prototype is equal to one of the prototypes in the 
+            obj prototype chain.
+
+            In other words, compare one after another:
+        */
+
+        class Animal {}
+        class Rabbit extends Animal {}
+
+        let rabbit = new Rabbit();
+        alert(rabbit instanceof Animal); // true
+
+        // rabbit.__proto__ === Animal.prototype (no match)
+        // rabbit.__proto__.__proto__ === Animal.prototype (match!)
+
+    </script>
+</body>
+</html>

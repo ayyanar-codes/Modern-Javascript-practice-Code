@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Static properties are also possible, they look like regular class properties, but prepended by static:
+    
+        class Article {
+            static publisher = "Samuel";
+        }
+
+        alert( Article.publisher ); // Samuel
+
+
+        Article.Name = "Samuel";
+
+        alert( Article.Name );  //Samuel
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            The instanceof operator allows to check whether an object belongs to a 
+            certain class. It also takes inheritance into account.
+
+            Such a check may be necessary in many cases. For example, it can be used for 
+            building a polymorphic function, the one that treats arguments differently 
+            depending on their type.
+
+            The syntax is:
+                obj instanceof Class
+        */
+
+        class Rabbit {}
+        let rabbit = new Rabbit();
+
+        // is it an object of Rabbit class?
+        alert( rabbit instanceof Rabbit ); // true
+
+
+    </script>
+</body>
+</html>

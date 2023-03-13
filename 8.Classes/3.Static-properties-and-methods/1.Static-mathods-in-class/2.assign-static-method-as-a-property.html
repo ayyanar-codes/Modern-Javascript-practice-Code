@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            That actually does the same as assigning it as a property directly:
+        */
+
+        class User { }
+
+        User.staticMethod = function() {
+            alert(this === User);
+        };
+
+        User.staticMethod(); // true
+
+    </script>
+</body>
+</html>

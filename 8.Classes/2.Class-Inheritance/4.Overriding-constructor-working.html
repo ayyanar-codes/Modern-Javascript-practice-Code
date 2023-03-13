@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+/*
+        Constructors in inheriting classes must call super(...), and (!) do it before using this.
+*/
+         class Animal{
+            constructor(name) {
+                this.name=name;
+                this.speed=0;
+                alert(this.name);
+            }
+
+            run(speed){
+                this.speed=speed;
+                alert(`${this.name} runs with speed ${this.speed}`);
+            }
+
+            stop(){
+                this.speed=0;
+                alert(`${this.name} stands still`);
+            }
+        }
+
+        class Rabit extends Animal{
+            constructor(name, earLength){
+                super(name);
+                this.earLength=earLength;
+            }
+        }
+
+        //not working
+        let rabbit=new Rabit('Ayyanar', 10);
+        //Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+
+    </script>
+</body>
+</html>

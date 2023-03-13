@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        For power property, let’s make it read-only. It sometimes happens that a property must be set at creation time only, and then never modified.
+
+        That’s exactly the case for a coffee machine: power never changes.
+
+        To do so, we only need to make getter, but not the setter:
+        */
+
+        class coffeeMachine{
+            _power=0;
+            constructor(power) {
+                this._power=power;
+            }
+
+            get power(){
+                return this._power;
+            }
+        }
+
+        let coffee=new coffeeMachine(100);
+
+        alert(`power of coffee machine is ${coffee.power}w`);
+        
+    </script>
+</body>
+</html>

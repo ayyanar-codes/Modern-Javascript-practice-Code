@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class CoffeeeMachine{
+            _waterAmount=0;  //underScore is not enforced on the language level.
+
+            set waterAmount(value){
+                if(value<0){
+                    value=0;
+                }
+
+                this._waterAmount=value;
+            }
+
+            get waterAmount(){
+                return this._waterAmount;
+            }
+
+            constructor(power) {
+                this.power=power;
+            }
+        }
+
+        let coffee=new CoffeeeMachine(100);
+        coffee.waterAmount=-10;
+        alert(coffee.waterAmount);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Normally, instanceof examines the prototype chain for the check. We can also set a 
+            custom logic in the static method Symbol.hasInstance.
+
+            The algorithm of obj instanceof Class works roughly as follows:
+
+            If there’s a static method Symbol.hasInstance, then just call it: Class[Symbol.hasInstance](obj). 
+            It should return either true or false, and we’re done. That’s how we can customize the behavior
+            of instanceof.
+
+            For example:
+        */
+
+
+        // setup instanceOf check that assumes that
+        // anything with canEat property is an animal
+        class Animal {
+            static [Symbol.hasInstance](obj) {
+                if (obj.canEat) return true;
+            }
+        }
+
+        let obj = { canEat: true };
+
+        alert(obj instanceof Animal); // true: Animal[Symbol.hasInstance](obj) is called
+    </script>
+</body>
+</html>
