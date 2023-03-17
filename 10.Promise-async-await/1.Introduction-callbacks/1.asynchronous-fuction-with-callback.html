@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js', fnNotification);
+
+        function loadScript(src, cbFunc){
+            let script=document.createElement('script');
+            script.src=src;
+            script.onload=()=>cbFunc();
+            document.head.append(script);
+        }
+
+        function fnNotification(){
+            alert('The script has been loaded successfully');
+        }
+
+
+    </script>
+</body>
+</html>

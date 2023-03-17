@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            there is a recent addition to the laguage. Old browsers may need polyfils
+
+            Promise.all rejects as a whole if any promise rejects . Thats good for all 
+            or nothing cases When we need all results successfull to proceed
+        */
+
+        Promise.all([
+            fetch('/template.html'),
+            fetch('/style.css'),
+            fetch('/data.json')
+        ]).then(render);
+
+        //render method needs results of all fetches
+        
+        
+
+
+
+
+    </script>
+</body>
+</html>

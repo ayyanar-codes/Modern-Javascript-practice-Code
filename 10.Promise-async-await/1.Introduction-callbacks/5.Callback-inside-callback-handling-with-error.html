@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let sSRC1='https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js';
+        let sSRC2='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js';
+        let sSRC3='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js';
+        let sSRC4='https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css';
+    
+        
+        
+        loadScript(sSRC4, fnNotification, fnError);
+
+        function loadScript(src, cbSuccess, cbFailed){
+            let script=document.createElement('script');
+            script.src=src;
+            script.onload=()=>cbSuccess(script);
+            script.onerror=()=>cbFailed(script);
+            document.head.append(script);
+        }
+
+        function fnNotification(script){
+            alert(`The script ${script.src} have been loaded successfully`);
+        }
+
+        function fnError(script){
+            alert(`Sorry, the script ${script.src} not updated. please check and try again`);
+        }
+
+    </script>
+</body>
+</html>

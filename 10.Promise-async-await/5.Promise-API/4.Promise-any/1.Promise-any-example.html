@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Similar to Promise.race, but waits only for the first fulfilled promise and gets its result. 
+            If all of the given promises are rejected, then the returned promise is rejected with 
+            AggregateError – a special error object that stores all promise errors in its errors property.
+
+            The syntax is:
+            let promise = Promise.any(iterable);
+
+            For instance, here the result will be 1:
+        */
+
+
+        Promise.any([
+            new Promise((resolve, reject) => setTimeout(() => reject(new Error("Whoops!")), 1000)),
+            new Promise((resolve, reject) => setTimeout(() => resolve(1), 2000)),
+            new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
+        ]).then(alert); // 1
+
+        /*
+            The first promise here was fastest, but it was rejected, so the second promise became the result. 
+            After the first fulfilled promise “wins the race”, all further results are ignored.
+        */
+
+        
+    </script>
+</body>
+</html>

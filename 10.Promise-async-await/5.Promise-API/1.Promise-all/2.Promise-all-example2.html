@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let URLs=[
+            'https://api.github.com/users/iliakan',
+            'https://api.github.com/users/remy',
+            'https://api.github.com/users/jeresig'
+        ];
+
+
+        //map every url to the promise of the fetch
+        let requests=URLs.map(url=>fetch(url));
+
+        //promise.all waits until all jobs are resolved.
+        Promise.all(requests)
+        .then(responses=>responses.forEach(
+            response=>{
+                alert(`${response.url}: ${response.status}`);
+            }
+        ));
+
+        
+    </script>
+</body>
+</html>

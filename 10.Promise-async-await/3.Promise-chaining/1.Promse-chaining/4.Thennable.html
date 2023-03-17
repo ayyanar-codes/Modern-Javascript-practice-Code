@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        To be precise, a handler may return not exactly a promise, but a so-called 
+        “thenable” object – an arbitrary object that has a method .then. It will be 
+        treated the same way as a promise.
+
+        The idea is that 3rd-party libraries may implement “promise-compatible” objects of 
+        their own. They can have an extended set of methods, but also be compatible with 
+        native promises, because they implement .then.
+
+        Here’s an example of a thenable object:
+        */
+        class Thenable {
+            constructor(num) {
+                this.num = num;
+            }
+            then(resolve, reject) {
+                alert(resolve); // function() { native code }
+                // resolve with this.num*2 after the 1 second
+                setTimeout(() => resolve(this.num * 2), 1000); // (**)
+            }
+        }
+
+        new Promise(resolve => resolve(1))
+            .then(result => {
+            return new Thenable(result); // (*)
+        })
+        .then(alert); // shows 2 after 1000ms
+
+        /*
+
+        JavaScript checks the object returned by the .then handler in line (*): if it has a
+         callable method named then, then it calls that method providing native functions 
+         resolve, reject as arguments (similar to an executor) and waits until one of them 
+         is called. In the example above resolve(2) is called after 1 second (**). Then the 
+         result is passed further down the chain.
+
+        This feature allows us to integrate custom objects with promise chains without 
+        having to inherit from Promise.
+
+        */
+
+        
+    </script>
+</body>
+</html>

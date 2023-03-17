@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function loadScript(src){
+            return new Promise(function(reject, resolve){
+                let script=document.createElement('script');
+                script.src=src;
+                script.onload=()=>resolve(script);
+                script.onerror=()=>reject(script);
+                document.head.append(script);
+            });
+        }
+
+        let loadingScriptProcess=loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js')
+        
+        // loadingScriptProcess.then(function(data){
+        //     alert(`The script ${data} has been loaded successfully.`);
+        // }).catch(function(errorData){
+        //     alert(`The script ${errorData} not loaded. please check and try again`);
+        // });
+
+        loadingScriptProcess.then(
+            script=>alert(`The script ${script.src} has been loaded successfully.`),
+            error=>alert(`The script ${error.message} has been loaded successfully.`)
+        );
+
+        //loadingScriptProcess();
+    
+    </script>
+</body>
+</html>

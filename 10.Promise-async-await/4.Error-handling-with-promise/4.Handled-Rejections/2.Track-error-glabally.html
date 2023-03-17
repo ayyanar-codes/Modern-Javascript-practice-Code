@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('unhandledrejection', function(event){
+            //event object has two special properties:
+            alert(event.promise);
+                //[object Object] -the promise that generated the error
+
+                alert(event.reason);
+                //Error:Whoops!-the unhandled error object
+        });
+
+
+        new Promise(function(){
+            throw new Error('Whoops!');
+        });
+
+    </script>
+</body>
+</html>
