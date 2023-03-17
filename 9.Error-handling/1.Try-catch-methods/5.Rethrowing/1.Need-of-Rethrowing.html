@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+            In the example above we use try...catch to handle incorrect data. But is it possible that 
+            another unexpected error occurs within the try {...} block? Like a programming error 
+            (variable is not defined) or something else, not just this “incorrect data” thing.
+        */
+
+        let json = '{ "age": 30 }'; // incomplete data
+
+        try {
+            user = JSON.parse(json); // <-- forgot to put "let" before user
+        // ...
+        } catch (err) {
+            alert("JSON Error: " + err); // JSON Error: ReferenceError: user is not defined
+            // (no JSON Error actually)
+        }
+    </script>
+</body>
+</html>
