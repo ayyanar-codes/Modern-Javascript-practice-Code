@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            The purpose of the function readUser in the code above is “to read the user data”. There may 
+            occur different kinds of errors in the process. Right now we have SyntaxError and 
+            ValidationError, but in the future readUser function may grow and probably generate other kinds
+            of errors.
+
+            The code which calls readUser should handle these errors. Right now it uses multiple ifs in the 
+            catch block, that check the class and handle known errors and rethrow the unknown ones.
+        */
+
+        try {
+            //...
+            readUser()  // the potential error source
+                //...
+            } catch (err) {
+            if (err instanceof ValidationError) {
+                // handle validation errors
+            } else if (err instanceof SyntaxError) {
+                // handle syntax errors
+            } else {
+                throw err; // unknown error, rethrow it
+            }
+        }
+
+    </script>
+</body>
+</html>
