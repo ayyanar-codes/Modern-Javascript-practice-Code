@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            That’s kind of a minor feature, but for completeness we should mention it.
+            In a module, top-level this is undefined.
+
+            Compare it to non-module scripts, where this is a global object:
+        */
+
+        alert(this); // window
+
+    </script>
+    
+    <script type="module">
+        alert(this); // undefined
+    </script>
+</body>
+</html>

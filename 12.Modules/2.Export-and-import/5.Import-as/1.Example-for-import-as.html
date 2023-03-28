@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        We can also use as to import under different names.
+        For instance, let’s import sayHi into the local variable hi for brevity, and import sayBye as bye:
+    -->
+    <script type="module">
+        // 📁 main.js
+        import {sayHi as hi, sayBye as bye} from './say.js';
+        
+        hi('John'); // Hello, John!
+        bye('John'); // Bye, John!
+    </script>
+</body>
+</html>

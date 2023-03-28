@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="user.js"></script>
+    <script type="module" src="hello.js"></script>
+</head>
+<body>
+    <script>
+
+        /*
+            Each module has its own top-level scope. In other words, top-level variables and functions from 
+            a module are not seen in other scripts.
+
+            In the example below, two scripts are imported, and hello.js tries to use user variable declared 
+            in user.js. It fails, because it’s a separate module (you’ll see the error in the console):
+
+        */
+
+
+        /*
+            Open console, we can see error: "Uncaught ReferenceError: user is not defined"
+        */
+    </script>
+</body>
+</html>

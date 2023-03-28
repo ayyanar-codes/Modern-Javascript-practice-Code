@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Also, we can put export separately.
+        Here we first declare, and then export:
+    -->
+
+    <script type="module">
+
+        // 📁 say.js
+        function sayHi(user) {
+            alert(`Hello, ${user}!`);
+        }
+
+        function sayBye(user) {
+            alert(`Bye, ${user}!`);
+        }
+
+        export {sayHi, sayBye}; // a list of exported variables
+    </script>
+
+    <!--…Or, technically we could put export above functions as well.-->
+
+</body>
+</html>

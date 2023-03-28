@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="User.js"></script>
+</head>
+<body>
+    <!--
+        In practice, there are mainly two kind of modules
+            1.Modules that contain a library, pack of functions, like previous example.
+            2.Modules that declare a single entity, e.g a module User.js exports only Class User
+
+        Mostly the second approach is prefered, so that every 'thing' resides in its own module
+
+        naturally, that requires a lot of files, as everything wants its own module, but that's 
+        not a problem at all. Actually, code navigation becomes easier if files are well-named and 
+        structured into folders 
+        
+        Modules provide a special export default (“the default export”) syntax to make the “one thing 
+        per module” way look better.
+
+        Put export default before the entity to export: (See connected scripts)
+
+        Imports without curly braces look nicer. A common mistake when starting to use modules is to 
+        forget curly braces at all. So, remember, import needs curly braces for named exports and 
+        doesn’t need them for the default one.
+
+        Named export	            Default export
+        export class User {...}	    export default class User {...}
+        import {User} from ...	    import User from ...
+
+        Technically, we may have both default and named exports in a single module, but in practice people 
+        usually don’t mix them. A module has either named exports or the default one.
+
+
+        Not giving a name is fine, because there is only one export default per file, so import without 
+        curly braces knows what to import.
+
+        
+    -->
+</body>
+</html>

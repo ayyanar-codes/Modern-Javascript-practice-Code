@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--
+        
+        For non-module scripts, the async attribute only works on external scripts. Async scripts 
+        run immediately when ready, independently of other scripts or the HTML document.
+
+        For module scripts, it works on inline scripts as well.
+
+        For example, the inline script below has async, so it doesn’t wait for anything.
+
+        It performs the import (fetches ./analytics.js) and runs when ready, even if the HTML document 
+        is not finished yet, or if other scripts are still pending.
+
+        That’s good for functionality that doesn’t depend on anything, like counters, ads, document-level 
+        event listeners.
+        
+    -->
+
+    <!-- all dependencies are fetched (analytics.js), and the script runs -->
+    <!-- doesn't wait for the document or other <script> tags -->
+    <script async type="module">
+        import {counter} from './analytics.js';
+        counter.count();
+    </script>
+
+</body>
+</html>

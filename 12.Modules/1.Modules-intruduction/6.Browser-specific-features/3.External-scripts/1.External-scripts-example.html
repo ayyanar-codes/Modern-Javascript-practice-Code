@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        External scripts that have type="module" are different in two aspects:
+    -->
+
+    <!--External scripts with the same src run only once:-->
+    <!-- the script my.js is fetched and executed only once -->
+    <script type="module" src="my.js"></script>
+    <script type="module" src="my.js"></script>
+
+    <!--
+        External scripts that are fetched from another origin (e.g. another site) require 
+        CORS headers, as described in the chapter Fetch: Cross-Origin Requests. In other words, 
+        if a module script is fetched from another origin, the remote server must supply a header
+        Access-Control-Allow-Origin allowing the fetch.
+    -->
+
+    <!-- another-site.com must supply Access-Control-Allow-Origin -->
+    <!-- otherwise, the script won't execute -->
+    <script type="module" src="http://another-site.com/their.js"></script>
+
+    <!--That ensures better security by default.-->
+</body> 
+</html>

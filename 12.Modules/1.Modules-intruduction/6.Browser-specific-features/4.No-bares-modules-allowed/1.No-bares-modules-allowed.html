@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--
+        In the browser, import must get either a relative or absolute URL. Modules without any 
+        path are called “bare” modules. Such modules are not allowed in import.
+
+        For instance, this import is invalid:
+    -->
+
+    <script>
+        import {sayHi} from 'sayHi'; // Error, "bare" module
+        // the module must have a path, e.g. './sayHi.js' or wherever the module is
+    </script>
+
+    <!--
+        Certain environments, like Node.js or bundle tools allow bare modules, without any path, 
+        as they have their own ways for finding modules and hooks to fine-tune them. But browsers 
+        do not support bare modules yet.
+    -->
+</body>
+</html>

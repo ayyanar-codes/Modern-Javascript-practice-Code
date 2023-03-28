@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Export and import directives have several syntax variants.
+
+        In the previous article we saw a simple use, now let’s explore more examples.
+
+    -->
+
+    <script type="module">
+        // export an array
+        export let months = ['Jan', 'Feb', 'Mar','Apr', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+        // export a constant
+        export const MODULES_BECAME_STANDARD_YEAR = 2015;
+
+        // export a class
+        export class User {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+    </script>
+</body>
+</html>
