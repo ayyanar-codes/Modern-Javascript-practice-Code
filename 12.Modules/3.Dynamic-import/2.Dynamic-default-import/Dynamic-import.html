@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="Index.js"></script>
+</head>
+<body>
+    <!--
+        say.js has the default export:
+        // 📁 say.js
+        export default function() {
+            alert("Module loaded (export default)!");
+        }
+
+        Then, in order to access it, we can use default property of the module object:
+
+        let obj = await import('./say.js');
+        let say = obj.default;
+        // or, in one line: let {default: say} = await import('./say.js');
+
+        say();
+
+
+        note:
+        Dynamic imports work in regular scripts, they don’t require script type="module".
+
+
+
+        note:
+        Although import() looks like a function call, it’s a special syntax that just happens to use parentheses 
+        (similar to super()).
+
+        So we can’t copy import to a variable or use call/apply with it. It’s not a function.
+
+    -->
+</body>
+</html>
