@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Imagine we have a dictionary, with phrases and their translations:
+            let dictionary = {
+            'Hello': 'Hola',
+            'Bye': 'Adiós'
+            };
+
+            alert( dictionary['Hello'] ); // Hola
+            alert( dictionary['Welcome'] ); // undefined
+        
+        Right now, if there’s no phrase, reading from dictionary returns undefined. But in practice,
+        leaving a phrase untranslated is usually better than undefined. So let’s make it return an untranslated phrase in that case instead of undefined.
+        To achieve that, we’ll wrap dictionary in a proxy that intercepts reading operations:
+    -->
+
+    <script>
+        let dictionary = {
+            'Hello': 'Hola',
+            'Bye': 'Adiós'
+        };
+
+        dictionary = new Proxy(dictionary, {
+            get(target, phrase) { // intercept reading a property from dictionary
+                if (phrase in target) { // if we have it in the dictionary
+                    return target[phrase]; // return the translation
+                } else {
+                    // otherwise, return the non-translated phrase
+                    return phrase;
+                }
+            }
+        });
+
+        // Look up arbitrary phrases in the dictionary!
+        // At worst, they're not translated.
+        alert( dictionary['Hello'] ); // Hola
+        alert( dictionary['Welcome to Proxy']); // Welcome to Proxy (no translation)
+
+
+        /*
+            Please note how the proxy overwrites the variable:
+            dictionary = new Proxy(dictionary, ...);
+            The proxy should totally replace the target object everywhere. No one should ever 
+            reference the target object after it got proxied. Otherwise it’s easy to mess up.
+
+
+        */
+    </script>
+</body>
+</html>

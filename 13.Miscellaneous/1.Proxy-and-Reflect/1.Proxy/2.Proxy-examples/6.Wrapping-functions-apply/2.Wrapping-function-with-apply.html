@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Wrapping functions: "apply"
+            We can wrap a proxy around a function as well.
+            The apply(target, thisArg, args) trap handles calling a proxy as function:
+                1. target is the target object (function is an object in JavaScript),
+                2. thisArg is the value of this.
+                3. args is a list of arguments.
+            For example, let’s recall delay(f, ms) decorator, that we did in the article Decorators and forwarding, 
+            call/apply.
+
+            In that article we did it without proxies. A call to delay(f, ms) returned a function that forwards 
+            all calls to f after ms milliseconds.
+
+
+        */
+
+
+        //Here’s the previous, function-based implementation:
+
+        function delay(func, ms){
+            //return wrapper that passes the call to func after the timeout
+            return function(){
+                setTimeout(()=>func.apply(this, arguments), ms);
+            };
+        }
+
+        function sayHi(user){
+            alert(`Hi ${user}!`);
+        }
+
+        //after this wrapping, calls to sayHi will be delayed 3 seconds
+        sayHi=delay(sayHi, 3000);
+
+        sayHi("Ayyanar"); // Hello, Ayyanar! (after 3 seconds)
+        alert(sayHi.length);  //we lost function arguments length
+        alert(sayHi.name);   //we lost function name
+        
+    </script>
+</body>
+</html>

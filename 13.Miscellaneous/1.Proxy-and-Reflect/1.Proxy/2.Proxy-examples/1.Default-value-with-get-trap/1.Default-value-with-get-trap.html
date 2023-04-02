@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--
+        MOst common traps are reading/writing properties.
+
+        To intercept reading, the handler should have a method get(target,property, receiver).
+
+        it triggers when a property is read with following arguments:
+
+            1. target is the target object, the one passed as the first argument to new Proxcy
+            2. property -property name
+            3. receiver- If the target property is getter, then receiver is the object that's going 
+            to used as 'this' in its call. Usually that's the proxy objectitself (or an object that inherit
+            from it, if we inherit from Proxy). Right now we dont need this argument, so it will explained in
+            more detail later.
+
+        let's use get to impliment default values for an object.
+
+        we will make an numeric array that returns 0 for nonexistnat values.
+
+        Usually when one tries to get a non-existing array item, then get undefined. But we will wrap 
+        a regular array into the proxy that traps reading and return 0 if there is no such property.
+
+
+    -->
+
+    <script>
+        let inumber=[0,1,2,3];
+        inumber=new Proxy(inumber, {get(target, prop){
+            if(prop in target){
+                return target[prop];
+            } else{
+                return 0;  //default value
+            }
+        }});
+
+        alert(inumber[13]);
+    </script>
+</body>
+</html>

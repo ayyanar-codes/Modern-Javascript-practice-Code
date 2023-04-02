@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        “In range” with “has” trap:
+        Let’s see more examples.
+        We have a range object:
+        let range = {
+            start: 1,
+            end: 10
+        };
+
+        We’d like to use the in operator to check that a number is in range.
+        The has trap intercepts in calls.
+        has(target, property)
+            1. target – is the target object, passed as the first argument to new Proxy,
+            2. property – property name
+    -->
+
+    <script>
+        let range={
+            start:1,
+            end:10
+        };
+
+        range=new Proxy(range, {
+            has(target, prop){
+                return prop>=target.start && prop<=target.end;
+            }
+        });
+
+        alert(4 in range);
+        alert( 11 in range);
+    </script>
+</body>
+</html>

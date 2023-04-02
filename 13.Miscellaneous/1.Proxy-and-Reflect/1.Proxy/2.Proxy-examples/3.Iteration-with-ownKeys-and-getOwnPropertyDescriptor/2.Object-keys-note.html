@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        If we return a key that doesn’t exist in the object, Object.keys won’t list it:
+        let user = { };
+
+        user = new Proxy(user, {
+            ownKeys(target) {
+                return ['a', 'b', 'c'];
+            }
+        });
+
+        alert( Object.keys(user) ); // <empty>
+
+        Why? The reason is simple: Object.keys returns only properties with the enumerable flag. To check 
+        for it, it calls the internal method [[GetOwnProperty]] for every property to get its descriptor. 
+        And here, as there’s no property, its descriptor is empty, no enumerable flag, so it’s skipped.
+
+        For Object.keys to return a property, we need it to either exist in the object, with the enumerable 
+        flag, or we can intercept calls to [[GetOwnProperty]] (the trap getOwnPropertyDescriptor does it), 
+        and return a descriptor with enumerable: true.
+
+        Here’s an example of that:
+    -->
+
+    <script>
+        let user = { };
+
+        user = new Proxy(user, {
+            ownKeys(target) { // called once to get a list of properties
+            return ['a', 'b', 'c'];
+            },
+
+            getOwnPropertyDescriptor(target, prop) { // called for every property
+                return {
+                    enumerable: true,
+                    configurable: true
+                    /* ...other flags, probable "value:..." */
+                };
+            }
+        });
+
+        alert( Object.keys(user) ); // a, b, c
+    </script>
+
+    <!--
+        Let’s note once again: we only need to intercept [[GetOwnProperty]] if the 
+        property is absent in the object.
+    -->
+
+</body>
+</html>
