@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Proxying a getter:
+            Let’s see an example that demonstrates why Reflect.get is better. And we’ll also see why get/set have the 
+            third argument receiver, that we didn’t use before.
+
+            We have an object user with _name property and a getter for it.
+            Here’s a proxy around it:
+        */
+
+        let userObj = {
+            _name: "Guest",
+            get name() {
+                return this._name;
+            }
+        };
+
+        let userProxyObj = new Proxy(user, {
+            get(target, prop, receiver) {
+                return target[prop];
+            }
+        });
+
+        alert(userProxyObj.name); // Guest
+
+
+        /*
+            The get trap is “transparent” here, it returns the original property, and doesn’t do anything else. 
+            That’s enough for our example.
+
+            Everything seems to be all right. But let’s make the example a little bit more complex.
+
+            After inheriting another object admin from user, we can observe the incorrect behavior:
+
+        */
+
+        let user = {
+            _name: "Guest",
+            get name() {
+                return this._name;
+        }
+        };
+
+        let userProxy = new Proxy(user, {
+            get(target, prop, receiver) {
+                return target[prop]; // (*) target = user
+            }
+        });
+
+        let admin = {
+            __proto__: userProxy,
+            _name: "Admin"
+        };
+
+        // Expected: Admin
+        alert(admin.name); // outputs: Guest (?!?)
+
+
+    </script>
+</body>
+</html>

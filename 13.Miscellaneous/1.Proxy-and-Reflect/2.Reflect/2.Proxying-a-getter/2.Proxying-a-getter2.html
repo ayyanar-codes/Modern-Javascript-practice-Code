@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            To fix such (previous example) situations, we need receiver, the third argument of get trap. It keeps the correct this to be passed to a 
+            getter. In our case that’s admin.
+
+            How to pass the context for a getter? For a regular function we could use call/apply, but that’s a getter, it’s not 
+            “called”, just accessed.
+
+            Reflect.get can do that. Everything will work right if we use it.
+
+            Here’s the corrected variant:
+        */
+
+        let user = {
+            _name: "Guest",
+            get name() {
+                return this._name;
+            }
+        };
+
+        let userProxy = new Proxy(user, {
+            get(target, prop, receiver) { // receiver = admin
+                return Reflect.get(target, prop, receiver); // (*)
+            }
+        });
+
+
+        let admin = {
+            __proto__: userProxy,
+            _name: "Admin"
+        };
+
+        alert(admin.name); // Admin
+
+
+    </script>
+</body>
+</html>
