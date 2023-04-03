@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script>
+        /*
+            The eval code is executed in the current lexical environment, so it can see outer variables:
+        */
+
+        let a=1;
+        function f(){
+            let a=2;
+            eval('alert(a)');
+        }
+
+        f();
+
+
+    </script>
+</body>
+</html>

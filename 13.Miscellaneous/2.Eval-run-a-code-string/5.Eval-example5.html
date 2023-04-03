@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            In strict mode, eval has its own lexical environment. So functions and variables, declared
+            inside eval, are not visible outside:
+        */
+       
+       // reminder: 'use strict' is enabled in runnable examples by default
+        eval("let x = 5; function f() {}");
+        alert(typeof x); // undefined (no such variable)
+        // function f is also not visible
+    </script>
+</body>
+</html>
