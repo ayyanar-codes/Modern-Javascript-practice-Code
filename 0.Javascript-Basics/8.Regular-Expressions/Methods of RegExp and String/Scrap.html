@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var strInput="Java is a server side language, wheareas Javascript is Frontend language. In additionally Javascript used as frontend language";
+
+        var Result1=strInput.match(/Java(script)/);
+        var Result2=strInput.match(/Java(script)/g);
+        var Result3=Array.from(strInput.matchAll(/Java(script)/g));
+        document.write(Result1.index);
+    </script>
+</body>
+</html>

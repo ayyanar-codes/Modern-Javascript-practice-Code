@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // var strInput=`He said: "She's the one"`;
+        // var regExp=/(["'])(\w+)\1/g;
+        // var strResult=strInput.match(regExp);
+        // document.write(strResult);
+        let str = `He said: "She's the one!".`;
+
+let regexp = /(['"])(.*?)\1/g;
+
+alert( str.match(regexp) ); // "She's the one!"
+    </script>
+</body>
+</html>

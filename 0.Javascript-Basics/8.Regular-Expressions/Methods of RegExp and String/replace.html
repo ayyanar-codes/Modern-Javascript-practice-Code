@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<script type="text/javascript">
+//This is generic method for searching and replacing, One of the most usefull ones the swiss army knife of searching and replacing.
+//We can use it without regular expressions, to search and replace a substring.
+
+//Mode:1 replace a dash by a colon (as substring)
+document.write('12-34-56'.replace("-", ":"));
+document.write("<br/>");
+
+//mode:2 replace using regular expression
+document.write('12-34-56'.replace(/-/g, ":"));
+document.write("<br/>");
+
+    
+</script>
+</body>
+</html>

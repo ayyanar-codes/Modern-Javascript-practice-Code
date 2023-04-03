@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+     // Caret (^) symbal represents begining f a text
+     // Dollar ($) symbal represents end of the text
+    var goodInput="12:34";
+    var badInput="12:345";
+    var regExp=/^\d\d:\d\d$/;
+    var blnResul1=regExp.test(goodInput);
+    var blnResult2=regExp.test(badInput);
+    document.write(blnResul1);
+    document.write("<br/>");
+    document.write(blnResult2);
+    </script>
+</body>
+</html>

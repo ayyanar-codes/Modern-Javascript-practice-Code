@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <!-- <div id="card-element"></div> -->
+
+    <div class="row" style="margin:30px;">
+        <div class="col-md-2">
+            <label for="card-element">Cart Number</label>
+        </div>
+        <div class="col-md-4" id="card-element">
+            <input type="text"  placeholder="Enter card number" class="form-control" value="9952331005">
+        </div>
+    </div>
+
+
+
+    <div class="row" style="margin:30px;">
+        <div class="col-md-2">
+            
+        </div>
+        <div class="col-md-4">
+           <button type="button" id="btnTest" class="btn btn-sm">Test</button>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-2">
+            <label class="form-label">Create Customers</label>
+        </div>
+
+        <div class="col-md-4">
+            <button type="button" id="btnCreateCustomers" class="btn btn-info">Create</button>
+        </div>
+        
+    </div>
+    
+
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+        
+
+        try{
+                var stripe =Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');   //Stripe('pk_live_51IyAuTSGNwhORdC1FgXRnI43ba3VAzUIQAOBmcXwG3H9G4TEExViBHbI5FC97iBLu6xvWfeezg6eZuzT4GcRbzEK00vbvbKlkI');
+                debugger;
+                var elements = stripe.elements();
+                var cardElement = elements.create('card');
+                let cardNumber=$("#card-element").val();
+                cardElement.mount('#card-element');
+            }
+            catch(err){
+                debugger;
+            }
+
+
+        $("#btnTest").click(function(){
+            alert("Test");
+            
+
+            
+
+        });
+
+
+        $("#btnCreateCustomers").click(function(){
+                alert("Create Customers test");
+                
+                //StripeConfiguration.ApiKey = "sk_test_4eC39HqLyjWDarjtT1zdp7dc";
+
+                // var options = new CustomerCreateOptions
+                // {
+                // Description : "My First Test Customer (created for API docs)",
+                // };
+
+                var options={
+                    CustomerCreateOptions:{
+                        "Description":"My First Test Customer (created for API docs)"
+                    }
+                }
+                var service = new CustomerService();
+                service.Create(options);
+                debugger;
+            });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        //Here \d represents a digit
+        var strInput="CSS4 and Javascript are the essential part of web application";
+        var regexp=/CSS\d/g;
+        var result=strInput.match(regexp);
+        document.write(result);
+
+        document.write("<br/>");
+
+        //Here \d represents a digit
+        //Here \w represents a letter
+        var regexp=/\w\w\w\d/g;
+        var result=strInput.match(regexp);
+        document.write(result);
+
+
+        document.write("<br/>");
+
+        var regexp=/\w\w\w\wscript/g;
+        var result=strInput.match(regexp);
+        document.write(result);
+
+        document.write("<br/>");
+
+        var regexp=/./g;
+        var result=strInput.match(regexp);
+        document.write(result);
+
+    </script>
+</body>
+</html>

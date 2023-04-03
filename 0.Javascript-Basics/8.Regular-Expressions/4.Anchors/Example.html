@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var strInput="Mary had a little lamb";
+        // Caret (^) symbal represents begining f a text
+        var regExp1=/^Mary/;
+        var blnResult1=regExp1.test(strInput);
+        document.write(blnResult1);
+
+
+        document.write("<br/>");
+
+        // Dollar ($) symbal represents end of the text
+        var regExp2=/lamb$/;
+        var blnResult2=regExp2.test(strInput);
+        document.write(blnResult2);
+
+    </script>
+</body>
+</html>

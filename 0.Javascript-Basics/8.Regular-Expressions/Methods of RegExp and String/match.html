@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+//Mode:1  (Without g flog)
+// If the regExp dos'nt have g flag, then it returns the first match of an array with Capturing groups 
+//and properties index (Position of the match)
+
+let str="I love javascript";
+let result=str.match(/java(script)/);
+
+document.write(result[0]);
+document.write("<br/>");
+document.write(result[1]);
+document.write("<br/>");
+document.write(result.length);
+document.write("<br/>");
+// 0: "javascript"
+// 1: "script"
+// groups: undefined
+// index: 7
+// input: "I love javascript"
+// length: 2
+//----------------------------------------------------------------------------------------------------------------------
+//Mode:2 (With g flag)
+//If the regExp has glag g, Then it turns an array of matches as strings 
+//without capturing groups and other details
+let strString="I love javascript";
+let Result2=strString.match(/java(script)/g);
+document.write(Result2[0]);
+document.write("<br/>");
+document.write(Result2.length);
+document.write("<br/>");
+// 0: "javascript"
+// length: 1
+//----------------------------------------------------------------------------------------------------------------------
+//Mode:3 (No matches with or without g flag)
+let str2 ="I love javascript";
+let result3=str2.match(/html/);
+debugger;
+document.write(result3);
+document.write("<br/>");
+document.write(Result3.length);
+//null
+//Uncaught ReferenceError: Result3 is not defined
+
+</script>
+</body>
+</html>
