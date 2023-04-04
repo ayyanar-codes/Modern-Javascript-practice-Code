@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Currying? What for?
+            To understand the benefits we need a worthy real-life example.
+            For instance, we have the logging function log(date, importance, message) that formats and 
+            outputs the information. In real projects such functions have many useful features like 
+            sending logs over the network, here we’ll just use alert
+        */
+
+        function log(date, importance, message) {
+            alert(`[${date.getHours()}:${date.getMinutes()}] [${importance}] ${message}`);
+        }
+
+        //Let’s curry it!
+        log = _.curry(log);
+
+        //After that log works normally:
+        log(new Date(), "DEBUG", "some debug"); // log(a, b, c)
+
+        //…But also works in the curried form:
+        log(new Date())("DEBUG")("some debug"); // log(a)(b)(c)
+
+        //Now we can easily make a convenience function for current logs:
+        // logNow will be the partial of log with fixed first argument
+        let logNow = log(new Date());
+
+        // use it
+        logNow("INFO", "message"); // [HH:mm] INFO message
+
+        /*
+            Now logNow is log with fixed first argument, in other words “partially applied function” or 
+            “partial” for short.
+
+            We can go further and make a convenience function for current debug logs:
+        */
+
+        let debugNow = logNow("DEBUG");
+        debugNow("message"); // [HH:mm] DEBUG message
+
+        /*
+            So:
+                1. We didn’t lose anything after currying: log is still callable normally.
+                2. We can easily generate partial functions such as for today’s logs.
+        */
+    </script>
+</body>
+</html>

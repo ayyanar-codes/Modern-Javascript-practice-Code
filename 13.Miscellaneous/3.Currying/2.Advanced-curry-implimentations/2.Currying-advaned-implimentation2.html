@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            The result of curry(func) call is the wrapper curried that looks like this:
+        */
+
+        // func is the function to transform
+        function curried(...args) {
+            if (args.length >= func.length) { // (1)
+                return func.apply(this, args);
+            } else {
+                return function(...args2) { // (2)
+                return curried.apply(this, args.concat(args2));
+                }
+            }
+        };
+
+        /*
+            When we run it, there are two if execution branches:
+                1. If passed args count is the same or more than the original function has in its definition 
+                (func.length) , then just pass the call to it using func.apply.
+                2. Otherwise, get a partial: we don’t call func just yet. Instead, another wrapper is returned, 
+                that will re-apply curried providing previous arguments together with the new ones.
+            Then, if we call it, again, we’ll get either a new partial (if not enough arguments) or, finally, the result.
+        */
+
+
+        /*
+            Note:
+            Fixed-length functions only:
+            The currying requires the function to have a fixed number of arguments.
+            A function that uses rest parameters, such as f(...args), can’t be curried this way.
+
+            A little more than currying:
+            By definition, currying should convert sum(a, b, c) into sum(a)(b)(c).
+            But most implementations of currying in JavaScript are advanced, as described: they also keep the 
+            function callable in the multi-argument variant.
+        */
+    </script>
+</body>
+</html>
