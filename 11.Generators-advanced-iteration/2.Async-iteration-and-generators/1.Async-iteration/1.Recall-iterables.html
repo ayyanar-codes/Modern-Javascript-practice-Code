@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Asynchronous iteration allow us to iterate over data that comes asynchronously, on-demand. Like, 
+            for instance, when we download something chunk-by-chunk over a network. And asynchronous generators 
+            make it even more convenient.
+
+
+        */
+
+        //Let’s see a simple example first, to grasp the syntax, and then review a real-life use case.
+
+        let range = {
+            from: 1,
+            to: 5
+        };
+
+        /*
+            …And we’d like to use for..of loop on it, such as for(value of range), to get values from 1 to 5.
+
+            In other words, we want to add an iteration ability to the object.
+
+            That can be implemented using a special method with the name Symbol.iterator:
+                This method is called in by the for..of construct when the loop is started, and it should return 
+                an object with the next method.
+                For each iteration, the next() method is invoked for the next value.
+                The next() should return a value in the form {done: true/false, value:<loop value>}, where 
+                done:true means the end of the loop.
+        */
+
+
+        let range1 = {
+            from: 1,
+            to: 5,
+
+            [Symbol.iterator]() { // called once, in the beginning of for..of
+                return {
+                current: this.from,
+                last: this.to,
+
+                next() { // called every iteration, to get the next value
+                    if (this.current <= this.last) {
+                    return { done: false, value: this.current++ };
+                    } else {
+                    return { done: true };
+                    }
+                }
+                };
+            }
+        };
+
+        for(let value of range1) {
+            alert(value); // 1 then 2, then 3, then 4, then 5
+        }
+
+    </script>
+</body>
+</html>
