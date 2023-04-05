@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            In-depth language feature
+            This article covers an advanced topic, to understand certain edge-cases better.
+            It’s not important. Many experienced developers live fine without knowing it. Read on if you want to know how things work under the hood.
+
+            A dynamically evaluated method call can lose this.
+        */
+
+        let user = {
+            name: "John",
+            hi() { alert(this.name); },
+            bye() { alert("Bye"); }
+        };
+
+        user.hi(); // works
+
+        // now let's call user.hi or user.bye depending on the name
+        (user.name == "John" ? user.hi : user.bye)(); // Error!
+
+        /*
+            On the last line there is a conditional operator that chooses either user.hi or user.bye. In this case 
+            the result is user.hi.
+
+            Then the method is immediately called with parentheses (). But it doesn’t work correctly!
+
+            As you can see, the call results in an error, because the value of "this" inside the call becomes undefined.
+
+            
+        */
+
+        //This works (object dot method):
+        user.hi();
+
+        //This doesn’t (evaluated method):
+        (user.name == "John" ? user.hi : user.bye)(); // Error!
+
+        //Why? If we want to understand why it happens, let’s get under the hood of how obj.method() call works.
+    </script>
+</body>
+</html>

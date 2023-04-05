@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            When inside if or other boolean operations, bigints behave like numbers.
+            For instance, in if, bigint 0n is falsy, other values are truthy:
+        */
+
+        if (0n) {
+            // never executes
+        }
+
+        /*
+            Boolean operators, such as ||, && and others also work with bigints similar to numbers:
+        */
+
+        alert( 1n || 2 ); // 1 (1n is considered truthy)
+        alert( 0n || 2 ); // 2 (0n is considered falsy)
+
+
+    </script>
+</body>
+</html>

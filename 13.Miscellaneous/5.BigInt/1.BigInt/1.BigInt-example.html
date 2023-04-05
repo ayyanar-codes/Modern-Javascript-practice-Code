@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            A recent addition:
+            This is a recent addition to the language. You can find the current state of support at 
+            https://caniuse.com/#feat=bigint.
+        */
+
+        /*
+            BigInt is a special numeric type that provides support for integers of arbitrary length.
+
+            A bigint is created by appending n to the end of an integer literal or by calling the function BigInt 
+            that creates bigints from strings, numbers etc.
+        */
+
+        const bigint = 1234567890123456789012345678901234567890n;
+
+        const sameBigint = BigInt("1234567890123456789012345678901234567890");
+
+        const bigintFromNumber = BigInt(10); // same as 10n
+        
+    </script>
+</body>
+</html>

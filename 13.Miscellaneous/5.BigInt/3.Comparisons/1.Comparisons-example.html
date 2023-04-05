@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Comparisons, such as <, > work with bigints and numbers just fine:
+        alert( 2n > 1n ); // true
+        alert( 2n > 1 ); // true
+
+
+        /*
+            Please note though, as numbers and bigints belong to different types, they can be equal ==, but not 
+            strictly equal ===:
+        */
+
+        alert( 1 == 1n ); // true
+        alert( 1 === 1n ); // false
+
+    </script>
+</body>
+</html>

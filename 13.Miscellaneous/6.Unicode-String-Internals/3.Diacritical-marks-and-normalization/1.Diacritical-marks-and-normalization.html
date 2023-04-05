@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            In many languages, there are symbols that are composed of the base character with a mark above/under it.
+
+            For instance, the letter a can be the base character for these characters: àáâäãåā.
+
+            Most common “composite” characters have their own code in the Unicode table. But not all of them, 
+            because there are too many possible combinations.
+
+            To support arbitrary compositions, the Unicode standard allows us to use several Unicode characters: 
+            the base character followed by one or many “mark” characters that “decorate” it.
+
+            For instance, if we have S followed by the special “dot above” character (code \u0307), it is shown as Ṡ.
+        */
+
+        alert( 'S\u0307' ); // Ṡ
+
+        /*
+            If we need an additional mark above the letter (or below it) – no problem, just add the necessary mark 
+            character.
+
+            For instance, if we append a character “dot below” (code \u0323), then we’ll have “S with dots above 
+            and below”: Ṩ.
+
+            For example:
+        */
+
+        alert( 'S\u0307\u0323' ); // Ṩ
+
+        /*
+            This provides great flexibility, but also an interesting problem: two characters may visually look the 
+            same, but be represented with different Unicode compositions.
+
+            For instance:
+        */
+
+        let s1 = 'S\u0307\u0323'; // Ṩ, S + dot above + dot below
+        let s2 = 'S\u0323\u0307'; // Ṩ, S + dot below + dot above
+
+        alert( `s1: ${s1}, s2: ${s2}` );
+
+        alert( s1 == s2 ); // false though the characters look identical (?!)
+
+        /*
+            To solve this, there exists a “Unicode normalization” algorithm that brings each string to the single “normal” form.
+            It is implemented by str.normalize().
+        */
+
+        alert( "S\u0307\u0323".normalize() == "S\u0323\u0307".normalize() ); // true
+
+        /*
+            It’s funny that in our situation normalize() actually brings together a sequence of 3 characters to 
+            one: \u1e68 (S with two dots).
+        */
+
+        alert( "S\u0307\u0323".normalize().length ); // 1
+        alert( "S\u0307\u0323".normalize() == "\u1e68" ); // true
+
+        /*
+            In reality, this is not always the case. The reason is that the symbol Ṩ is “common enough”, so Unicode 
+            creators included it in the main table and gave it the code.
+
+            If you want to learn more about normalization rules and variants – they are described in the appendix 
+            of the Unicode standard: Unicode Normalization Forms, but for most practical purposes the information 
+            from this section is enough.
+        */
+       
+    </script>
+</body>
+</html>

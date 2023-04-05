@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        Polyfilling bigints is tricky. The reason is that many JavaScript operators, such as +, - and so on behave 
+        differently with bigints compared to regular numbers.
+
+        For example, division of bigints always returns a bigint (rounded if necessary).
+
+        To emulate such behavior, a polyfill would need to analyze the code and replace all such operators with 
+        its functions. But doing so is cumbersome and would cost a lot of performance.
+
+        So, there’s no well-known good polyfill.
+
+        Although, the other way around is proposed by the developers of JSBI library.
+
+        This library implements big numbers using its own methods. We can use them instead of native bigints:
+
+        
+        Operation	            native BigInt	        JSBI
+        Creation from Number	a = BigInt(789)	        a = JSBI.BigInt(789)
+        Addition	            c = a + b	            c = JSBI.add(a, b)
+        Subtraction	            c = a - b	            c = JSBI.subtract(a, b)
+        …	                    …	                    …
+
+        …And then use the polyfill (Babel plugin) to convert JSBI calls to native bigints for those browsers that 
+        support them.
+
+        In other words, this approach suggests that we write code in JSBI instead of native bigints. But JSBI works 
+        with numbers as with bigints internally, emulates them closely following the specification, so the code 
+        will be “bigint-ready”.
+
+        We can use such JSBI code “as is” for engines that don’t support bigints and for those that do support – 
+        the polyfill will convert the calls to native bigints.
+    -->>
+</body>
+</html>
