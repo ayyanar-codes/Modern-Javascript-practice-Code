@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //let sInputString='Welcome to the new application';
+
+        function gfnConvertTitleCase(sInput){
+            sInput=sInput||'';
+            let sReturnValue='';
+
+            try{
+                let arrInput=sInput.split(' ');
+
+                for(let inputWord of arrInput){
+                    
+                    if(inputWord.length>1){
+                        sReturnValue+=(inputWord[0]).toUpperCase()+inputWord.slice(1).toLocaleLowerCase()+' ';
+                    } else{
+                        sReturnValue+=inputWord.toLocaleLowerCase() +' ';
+                    }
+
+                }
+            } catch(err){
+                console.log(err);
+                sReturnValue=sInput;
+            }
+            
+            return sReturnValue;
+        }
+
+        alert(fnConvertTitleCase('is is working since 2021 to now'));
+    </script>
+</body>
+</html>
