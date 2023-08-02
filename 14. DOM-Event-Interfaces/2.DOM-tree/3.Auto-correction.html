@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        If the browser encounters malformed HTML, it automatically corrects it when making the DOM.
+
+        For instance, the top tag is always <html>. Even if it doesn’t exist in the document, it will exist in the DOM, because the browser will create it. The same goes for <body>.
+
+        As an example, if the HTML file is the single word "Hello", the browser will wrap it into <html> and <body>, and add the required <head>, and the DOM will be:
+    -->
+
+    <p>Hello
+        <li>Mom
+        <li>and
+        <li>Dad
+
+            <!--
+                …will become a normal DOM as the browser reads tags and restores the missing parts:
+            -->
+
+            <!--note-->
+            <!--
+                Tables always have <tbody>
+                An interesting “special case” is tables. By DOM specification they must have <tbody> tag, but HTML text may omit it. Then the browser creates <tbody> in the DOM automatically.
+
+                For the HTML:
+
+                <table id="table"><tr><td>1</td></tr></table>
+            -->
+</body>
+</html>
