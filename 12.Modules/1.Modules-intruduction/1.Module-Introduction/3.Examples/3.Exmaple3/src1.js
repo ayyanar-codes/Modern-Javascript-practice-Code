@@ -1,0 +1,2 @@
+import './MyModule.js';
+
