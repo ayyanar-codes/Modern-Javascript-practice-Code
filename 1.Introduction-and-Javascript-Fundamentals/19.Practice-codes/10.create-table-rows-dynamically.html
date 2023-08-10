@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create table rows dynamically</title>
+
+<style>
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 20vh;
+        margin: 0;
+    }
+
+  .sequence{width: 20px;}
+
+  .name{width: 200px;}
+
+  .email{width: 150px;}
+
+  .mobile,.city,.action{width: 100px;}
+
+  .removeButtonStyle{width:-webkit-fill-available;}
+
+  #hdn-hidden-value{width: 0px;}
+
+</style>
+
+</head>
+<body>
+
+    <input type="text" id="hdn-hidden-value" tabindex="1000" >
+
+    <table>
+        <thead>
+            <tr>
+                <th class="sequence">#</th>
+                <th class="name">Name</th>
+                <th class="email">Email</th>
+                <th class="mobile">Mobile</th>
+                <th class="city">City</th>
+                <th class="action">Action</th>
+            </tr>
+        </thead>
+        <tbody id="tbl-rows"></tbody>
+<script>
+
+    
+    let hiddenTextBox=document.getElementById('hdn-hidden-value');
+    let tbaleBody=document.getElementById('tbl-rows');
+    let inputElements = document.querySelectorAll('td');
+
+    let iCount=0;
+    let iTapIndex=0;
+    let iRtIds=0;
+
+
+    hiddenTextBox.addEventListener('focus',fnConfirmNew);
+
+
+    function fnConfirmNew(){
+
+        let aggreed=confirm('Do you want new row?');
+
+        if(aggreed){
+            fnCreateRow();
+        }
+
+        const lastRow = tbaleBody.querySelector('tr:last-child');
+        const secondCellOfLastRow = lastRow.querySelector('td:nth-child(2)');
+        secondCellOfLastRow.focus();
+    }
+
+
+    function fnCreateRow(){
+
+        
+
+        iRtIds++;
+        let trElem = document.createElement('tr');
+        trElem.id=iRtIds;
+
+        let sequence_column=document.createElement('td');
+        sequence_column.innerText=iRtIds;
+        trElem.append(sequence_column);
+
+        let name_column=document.createElement('td');  //
+        iTapIndex++;
+        name_column.setAttribute('tabindex', iTapIndex);
+        name_column.setAttribute('contenteditable', '');
+        trElem.append(name_column);
+
+        let email_column=document.createElement('td');
+        iTapIndex++;
+        email_column.setAttribute('tabindex', iTapIndex);
+        email_column.setAttribute('contenteditable', '');
+        trElem.append(email_column);
+
+
+        let mobile_column=document.createElement('td');
+        iTapIndex++;
+        mobile_column.setAttribute('tabindex', iTapIndex);
+        mobile_column.setAttribute('contenteditable', '');
+        trElem.append(mobile_column);
+
+
+        let city_column=document.createElement('td');
+        iTapIndex++;
+        city_column.setAttribute('tabindex', iTapIndex);
+        city_column.setAttribute('contenteditable', '');
+        city_column.className='last-cell';
+        trElem.append(city_column);
+
+
+        let action_column=document.createElement('td');
+        let removeButton=document.createElement('button');
+        removeButton.setAttribute('onclick', 'fnRemove('+iRtIds+')');
+        removeButton.setAttribute('type', 'button');
+        removeButton.setAttribute('tabindex', '-1');
+        removeButton.className='removeButtonStyle';
+        removeButton.innerHTML='Remove';
+        trElem.append(removeButton);
+
+        tbaleBody.append(trElem);
+
+    }
+
+    function fnRemove(rowId){
+        document.getElementById(rowId).outerHTML='';
+
+    }
+
+
+    fnCreateRow();
+
+</script>
+
+    </table>
+</body>
+</html>
