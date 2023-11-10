@@ -1,0 +1,38 @@
+<!--
+    Siblings and the parent:
+    Siblings are nodes that are children of the same parent.
+
+    For instance, here <head> and <body> are siblings:
+        <html>
+             <head>...</head>
+             <body>...</body>
+        </html>
+
+        Here:
+        1. <body> is said to be the “next” or “right” sibling of <head>,
+        2. <head> is said to be the “previous” or “left” sibling of <body>.
+
+
+    The next sibling is in nextSibling property, and the previous one – in previousSibling.
+
+    The parent is available as parentNode.
+
+    
+
+-->
+
+<!--For example:-->
+
+<!DOCTYPE html>
+<script>
+"use strict";
+
+// parent of <body> is <html>
+alert( document.body.parentNode === document.documentElement ); // true
+
+// after <head> goes <body>
+alert( document.head.nextSibling ); // HTMLBodyElement
+
+// before <body> goes <head>
+alert( document.body.previousSibling ); // HTMLHeadElement
+</script>

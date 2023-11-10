@@ -1,0 +1,26 @@
+<!--
+    As we can see, childNodes looks like an array. But actually it’s not an array, but rather a collection – a special array-like iterable 
+    object.
+
+
+    There are two important consequences:
+    
+    1. We can use for..of to iterate over it:
+
+        for (let node of document.body.childNodes) {
+            alert(node); // shows all nodes from the collection
+        }
+
+    That’s because it’s iterable (provides the Symbol.iterator property, as required).
+
+
+    2. Array methods won’t work, because it’s not an array:
+
+        alert(document.body.childNodes.filter); // undefined (there's no filter method!)
+
+    The first thing is nice. The second is tolerable, because we can use Array.from to create a “real” array from the collection, if we 
+    want array methods:
+
+        alert( Array.from(document.body.childNodes).filter ); // function
+        
+-->

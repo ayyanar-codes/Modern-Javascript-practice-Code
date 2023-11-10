@@ -1,0 +1,42 @@
+<!--
+    More links: tables:
+    Till now we described the basic navigation properties.
+    Certain types of DOM elements may provide additional properties, specific to their type, for convenience.
+    Tables are a great example of that, and represent a particularly important case:
+
+    The <table> element supports (in addition to the given above) these properties:
+        1. table.rows – the collection of <tr> elements of the table.
+        2. table.caption/tHead/tFoot – references to elements <caption>, <thead>, <tfoot>.
+        3. table.tBodies – the collection of <tbody> elements (can be many according to the standard, but there will always be at least 
+           one – even if it is not in the source HTML, the browser will put it in the DOM).
+
+    <thead>, <tfoot>, <tbody> elements provide the rows property:
+        1. tr.cells – the collection of <td> and <th> cells inside the given <tr>.
+        2. tr.sectionRowIndex – the position (index) of the given <tr> inside the enclosing <thead>/<tbody>/<tfoot>.
+        3. tr.rowIndex – the number of the <tr> in the table as a whole (including all table rows).
+            <td> and <th>:
+                1. td.cellIndex – the number of the cell inside the enclosing <tr>.
+
+-->
+
+<!--An example of usage:-->
+<table id="table">
+    <tr>
+      <td>one</td><td>two</td>
+    </tr>
+    <tr>
+      <td>three</td><td>four</td>
+    </tr>
+  </table>
+  
+  <script>
+    // get td with "two" (first row, second column)
+    let td = table.rows[0].cells[1];
+    td.style.backgroundColor = "red"; // highlight it
+  </script>
+
+<!--
+The specification: tabular data.
+There are also additional navigation properties for HTML forms. We’ll look at them later when we start working with forms.
+-->
+  

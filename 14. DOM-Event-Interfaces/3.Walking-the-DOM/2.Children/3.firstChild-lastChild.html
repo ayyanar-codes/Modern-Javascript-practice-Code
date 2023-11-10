@@ -1,0 +1,29 @@
+<!--
+    Properties firstChild and lastChild give fast access to the first and last children.
+They are just shorthands. If there exist child nodes, then the following is always true:
+
+elem.childNodes[0] === elem.firstChild
+elem.childNodes[elem.childNodes.length - 1] === elem.lastChild
+
+There’s also a special function elem.hasChildNodes() to check whether there are any child nodes.
+-->
+
+
+<html>
+<body>
+  <div>Begin</div>
+
+  <ul>
+    <li>Information</li>
+  </ul>
+
+  <div>End</div>
+
+  <script>
+    for (let i = 0; i < document.body.childNodes.length; i++) {
+      alert( document.body.childNodes[i] ); // Text, DIV, Text, UL, ..., SCRIPT
+    }
+  </script>
+  ...more stuff...
+</body>
+</html>
