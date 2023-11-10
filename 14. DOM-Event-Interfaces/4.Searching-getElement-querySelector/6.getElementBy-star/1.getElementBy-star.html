@@ -1,0 +1,86 @@
+
+
+<!--
+    There are also other methods to look for nodes by a tag, class, etc.
+
+    Today, they are mostly history, as querySelector is more powerful and shorter to write.
+
+    So here we cover them mainly for completeness, while you can still find them in the old scripts.
+
+    1. elem.getElementsByTagName(tag) looks for elements with the given tag and returns the collection of them. The tag parameter can also be a star "*" for “any tags”.
+    2. elem.getElementsByClassName(className) returns elements that have the given CSS class.
+    3. document.getElementsByName(name) returns elements with the given name attribute, document-wide. Very rarely used.
+
+    For instance:
+    // get all divs in the document
+    let divs = document.getElementsByTagName('div');
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="table">
+      <tr>
+        <td>Your age:</td>
+    
+        <td>
+          <label>
+            <input type="radio" name="age" value="young" checked> less than 18
+          </label>
+          <label>
+            <input type="radio" name="age" value="mature"> from 18 to 50
+          </label>
+          <label>
+            <input type="radio" name="age" value="senior"> more than 60
+          </label>
+        </td>
+      </tr>
+    </table>
+    
+    <script>
+      let inputs = table.getElementsByTagName('input');
+    
+      for (let input of inputs) {
+        alert( input.value + ': ' + input.checked );
+      }
+    </script>
+    </body>
+</html>
+
+
+<!-- 
+    Note:1
+    Don’t forget the "s" letter!
+
+    Novice developers sometimes forget the letter "s". That is, they try to call getElementByTagName instead of 
+    getElementsByTagName.
+
+    The "s" letter is absent in getElementById, because it returns a single element. But getElementsByTagName returns a collection 
+    of elements, so there’s "s" inside.
+ -->
+
+ <!--
+    Note:2
+    It returns a collection, not an element!
+
+    Another widespread novice mistake is to write:
+    // doesn't work
+    document.getElementsByTagName('input').value = 5;
+
+    That won’t work, because it takes a collection of inputs and assigns the value to it rather than to elements inside it.
+
+    We should either iterate over the collection or get an element by its index, and then assign, like this:
+    // should work (if there's an input)
+    document.getElementsByTagName('input')[0].value = 5;
+
+ -->
+
+

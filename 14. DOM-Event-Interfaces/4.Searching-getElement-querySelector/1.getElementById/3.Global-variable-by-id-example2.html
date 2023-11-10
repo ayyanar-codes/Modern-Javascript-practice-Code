@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="elem"></div>
+
+    <script>
+        let elem=5; // now elem is 5, not a reference to <div id="elem">
+        alert(elem); // 5
+    </script>
+</body>
+</html>
+
+
+<!--
+    Note:1
+    Please don’t use id-named global variables to access elements
+
+    This behavior is described in the specification, but it is supported mainly for compatibility.
+
+    The browser tries to help us by mixing namespaces of JS and DOM. That’s fine for simple scripts, inlined into HTML, but 
+    generally isn’t a good thing. There may be naming conflicts. Also, when one reads JS code and doesn’t have HTML in view, it’s 
+    not obvious where the variable comes from.
+
+    Here in the tutorial we use id to directly reference an element for brevity, when it’s obvious where the element comes from.
+
+    In real life document.getElementById is the preferred method.
+-->
+
+
+<!--
+    Note:2
+    The id must be unique
+
+    The id must be unique. There can be only one element in the document with the given id.
+
+    If there are multiple elements with the same id, then the behavior of methods that use it is unpredictable, 
+    e.g. document.getElementById may return any of such elements at random. So please stick to the rule and keep id unique.
+
+-->
+
+<!--
+    Note:3
+    Only document.getElementById, not anyElem.getElementById
+
+    The method getElementById can be called only on document object. It looks for the given id in the whole document.
+-->

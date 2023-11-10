@@ -1,0 +1,40 @@
+<!--
+    By far, the most versatile method, elem.querySelectorAll(css) returns all elements inside elem matching the given CSS selector.
+Here we look for all <li> elements that are last children:
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+      <li>The</li>
+      <li>test</li>
+    </ul>
+    <ul>
+      <li>has</li>
+      <li>passed</li>
+    </ul>
+    <script>
+      let elements = document.querySelectorAll('ul > li:last-child');
+    
+      for (let elem of elements) {
+        alert(elem.innerHTML); // "test", "passed"
+      }
+    </script>
+    </body>
+</html>
+
+<!--
+    Note:1
+    Can use pseudo-classes as well
+    Pseudo-classes in the CSS selector like :hover and :active are also supported. For instance, document.querySelectorAll(':hover') 
+    will return the collection with elements that the pointer is over now (in nesting order: from the outermost <html> to the most 
+    nested one).
+
+    
+-->
