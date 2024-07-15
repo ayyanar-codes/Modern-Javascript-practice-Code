@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a function to create promise dynamically</title>
+</head>
+<body>
+
+    <button type="button" id="btnTest">Test</button>
+    
+    <script>
+
+       document.getElementById('btnTest').addEventListener('click', ()=>{
+        createAsyncFunc(textFunctionOne.bind(null, 11,22,33,44)).then((res)=>{
+            if(res.status){
+                alert(res.result);
+            } else{
+                alert(res.Error);
+            }
+        });
+       });
+            
+        
+
+
+        function textFunctionOne(param1, param2,param3,param4){
+
+            let params=arguments;
+
+           for(let i=0;i<=100000;i++){
+            for(let j=0;j<=100000;j++){
+                if(i==100000 && j==100000 && i==j){
+                    test='OK';
+                }
+            }
+           }
+            return arguments.callee.name;
+        }
+
+
+
+         async function createAsyncFunc(callBackFunc){
+            return new Promise((resolve,reject)=>{
+                try{
+                    let resultValue= callBackFunc();
+                    resolve({result:resultValue,status:true});
+                }
+                catch(err){
+                    reject({result:'',status:false,Error:err});
+                }
+            });
+        }
+    </script>
+</body>
+</html>
