@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <button type="button" id="btnTest">Test</button>
+
+    <h1 id="hClock" ></h1>
+
+
+
+   <script type="module">
+
+
+        import {Clock} from './clock.js';
+
+        let testButton=document.getElementById('btnTest');
+
+
+        let clock=new Clock({template:'h-m-s'});
+
+        testButton.addEventListener('click',function(){
+            //alert('Test button clicked');
+
+            let tim=clock.start();
+
+        });
+   </script>
+</body>
+</html>
