@@ -11,19 +11,29 @@
         function promisify(f) {
             return function (...args) { // return a wrapper-function (*)
                 return new Promise((resolve, reject) => {
-                function callback(err, result) { // our custom callback for f (**)
-                    if (err) {
-                    reject(err);
-                    } else {
-                    resolve(result);
+                    function callback(err, result) { // our custom callback for f (**)
+                        if (err) {
+                        reject(err);
+                        } else {
+                        resolve(result);
+                        }
                     }
-                }
-
-                args.push(callback); // append our custom callback to the end of f arguments
-
-                f.call(this, ...args); // call the original function
+    
+                    args.push(callback); // append our custom callback to the end of f arguments
+    
+                    f.call(this, ...args); // call the original function
                 });
             };
+        }
+
+        function loadScript(src,callBack){
+            let script=document.createElement('script');
+            script.src=src;
+
+            script.onload= ()=> callBack(null,script);
+            script.onerror=()=> callBack(new Error(`script load error for ${src}`));
+
+            document.head.append(script);
         }
 
         // // usage:
