@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" name="" about="Elephant" id="txtInput" value="DEFAULT TEXT">
+
+    <script>
+
+        let elem=document.getElementById('txtInput');
+        alert( elem.getAttribute('about') );
+
+        elem.setAttribute('Test', 123); 
+
+        alert( elem.outerHTML );
+
+        for (let attr of elem.attributes) { // (4) list all
+      alert( `${attr.name} = ${attr.value}` );
+    }
+
+
+    </script>
+</body>
+</html>
